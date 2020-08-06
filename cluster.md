@@ -1,4 +1,12 @@
-# akka cluster: framework to build self organizing cluster
+# akka cluster
+
+--
+* Technologie suitable for redesigning a monolithic application ?
+* Short explanation of akka cluster "artifacts" and patterns
+* Possible usecases for the "Simplifer"
+
+ 
+
 ---
 
 ## Cluster patterns
@@ -106,12 +114,13 @@ of automatic scaling, but meanwhile almost all of them are providing
 
 ---
 ## Further Reading
-* [Reactive web application](http://file.allitebooks.com/20161008/Reactive%20Web%20Applications.pdf)
+* [Reactive web application](https://www.amazon.de/Reactive-Web-Applications-Covers-Streams/dp/163343009X/ref=sr_1_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Reactive+Web+Applications&qid=1596694303&sr=8-2)
 
 ---
 # the "simplifier" usecase (IMHO) for cluster redesign (by step) 
 
 ---
+### Step 1
 * create different domains
     * connector
     * database access
@@ -126,23 +135,41 @@ of automatic scaling, but meanwhile almost all of them are providing
 * create nodes accordingly
 
 --
-* create ``docker-compose`` local deployment for dev
+* create ``docker-compose`` setup for local deployment for dev
 
 ---
+
+### Step 2
 * implement monitoring subsystem
+* 1st with kamon
+* then replace this with prometheus and grafana
 
----
+--
+
+### Step 3
 * redesign logging (based on kafka)
+    * create logging consumer and producers
+    * create logging consumer for customers with filters
+    * create kafka logging connector to enable customer logging 
+--
 
----
+### Step 3
 * redesign connectors (async, result based on kafka)
-
+    * all event based connectors 
+    * all database base connector
+    * create a "kafka connect" connector
 ---
+
+### Step 4
 * change db access method (depends on if master / master replication is possible)
+    * all other decisions depends on which db to use
+--
 
----
+### Step 5
 * build kubernetes deployment
+    * ...
+--
 
----
+### Step 6
 * build automatic scaling    
-
+    * ...
