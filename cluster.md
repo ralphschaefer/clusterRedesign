@@ -78,7 +78,7 @@ A very common way to disturb these _hearbeats_ is to send very large messages, o
 
 **THEREFORE**:
 
-* An other mechanism should be uses for big and frequent: eg. [Kafka](https://kafka.apache.org/). An easy 
+* An other mechanism should be uses for big and frequent messages: eg. [Kafka](https://kafka.apache.org/). An easy 
 way to get this up & running it the [Confluent platform](https://www.confluent.io/); once
 again: not for free, but very useful. 
 
