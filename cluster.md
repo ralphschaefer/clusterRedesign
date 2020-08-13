@@ -104,9 +104,9 @@ db should be separated
 ### distribute data
 to distribute data, [CRDTs](https://m.heise.de/developer/artikel/Verteilte-Daten-ohne-Muehe-Conflict-Free-Replicated-Data-Types-3944421.html?seite=all)
 are a possible pattern. A _CRDT_ is the atomic part of distributed data. _CRDT_ are mergeable 
-without producing conflict. 
+without producing conflicts. 
 
-Distributed Data in Akka  
+*Distributed Data in Akka...*  
 * is eventually consistent
 * will be distributed via gossip protocol
 * are not suited for "Big Data"
