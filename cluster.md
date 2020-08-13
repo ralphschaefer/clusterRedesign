@@ -53,7 +53,7 @@ Alternatives [are](https://manuel.bernhardt.io/2018/07/20/akka-anti-patterns-jav
 
 --
 #### how to get "cheap metrics"
-- not for free, but very usefull: [Kamon](https://kamon.io/). This provides cluster metrics
+- not for free, but very useful: [Kamon](https://kamon.io/). This provides cluster metrics
 and JVM metrics from each node. Works with java aspectJ (they maybe have changed this meanwhile.. ?)
 the kamon metrics can later also be used by _prometeus_ for scraping
 - write your own :-)
@@ -85,11 +85,11 @@ again: not for free, but very useful.
 ---
 **There are certain other advantages of kafka:**
 * custom connector 
-* serialsation
+* serialization
 * aggregation
 * ready made metrics for monitoring
-* Almost any cloud provider has got kaffka
-* mesages are not event based, but polling is used, so the load on each node it limited
+* Almost any cloud provider has got kafka
+* messages are not event based, but polling is used, so the load on each node it limited
 * timeline database layout, that is perfect for logging
 * and much more...
 
@@ -98,7 +98,20 @@ again: not for free, but very useful.
 ### persistence
 - master / master replication should be possible
 - or at least if only master / slave is possible, _command_ and _query_ access to 
-db should be seperated 
+db should be separated 
+
+---
+### distribute data
+to distribute data, [CRDTs](https://m.heise.de/developer/artikel/Verteilte-Daten-ohne-Muehe-Conflict-Free-Replicated-Data-Types-3944421.html?seite=all)
+are a possible pattern. A _CRDT_ is the atomic part of distributed data. _CRDT_ are mergeable 
+without producing conflict. 
+
+Distributed Data in Akka  
+* is eventually consistent
+* will be distributed via gossip protocol
+* are not suited for "Big Data"
+* can be self implemented
+* has several predefined DataType (Maps, Sets, Counters, etc...)
 
 ---
 ## cluster "scaling"
